@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace AtelliTech\Hyperf\Auth;
 
 use AtelliTech\Hyperf\Auth\Contract\IdentityInterface;
+use Hyperf\Context\Context;
 
 /**
  * Class WebUser.
@@ -12,9 +13,9 @@ use AtelliTech\Hyperf\Auth\Contract\IdentityInterface;
 class WebUser
 {
     /**
-     * @var null|IdentityInterface
+     * @var string
      */
-    protected $identity;
+    private const CONTEXT_KEY = 'auth.identity';
 
     /**
      * Log in the given identity.
@@ -29,7 +30,7 @@ class WebUser
      */
     public function logout(): void
     {
-        $this->identity = null;
+        Context::set(self::CONTEXT_KEY, null);
     }
 
     /**
@@ -37,7 +38,7 @@ class WebUser
      */
     public function getId(): int|string|null
     {
-        return $this->identity?->getId();
+        return Context::get(self::CONTEXT_KEY)?->getId();
     }
 
     /**
@@ -45,7 +46,7 @@ class WebUser
      */
     public function getIdentity(): ?IdentityInterface
     {
-        return $this->identity;
+        return Context::get(self::CONTEXT_KEY);
     }
 
     /**
@@ -53,7 +54,7 @@ class WebUser
      */
     public function setIdentity(IdentityInterface $identity): void
     {
-        $this->identity = $identity;
+        Context::set(self::CONTEXT_KEY, $identity);
     }
 
     /**
@@ -61,6 +62,6 @@ class WebUser
      */
     public function isGuest(): bool
     {
-        return $this->identity === null;
+        return Context::get(self::CONTEXT_KEY) === null;
     }
 }
