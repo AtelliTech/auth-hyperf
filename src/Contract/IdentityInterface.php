@@ -12,7 +12,7 @@ interface IdentityInterface
     public function getId(): int|string;
 
     /**
-     * Get display name
+     * Get display name.
      */
     public function getDisplayName(): string;
 }
