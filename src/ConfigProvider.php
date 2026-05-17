@@ -44,8 +44,7 @@ class ConfigProvider
                     );
                 },
             ],
-            'commands' => [
-            ],
+            'commands' => [],
             'annotations' => [
                 'scan' => [
                     'paths' => [
