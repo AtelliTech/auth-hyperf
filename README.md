@@ -8,15 +8,17 @@ Supports JWT verification via remote JWKS (SSO integration).
 ## 🧩 Requirements
 
 * PHP ≥ 8.3
-* Hyperf ≥ 3.1
+* Hyperf 3.2 (`~3.2.0`)
 * Composer ≥ 2.0
+
+This release line supports Hyperf 3.2 only. For Hyperf 3.1, install `~3.1.0` (`v3.1.x`, branch `3.1`).
 
 ---
 
 ## ⚙️ 1. Installation
 
 ```bash
-composer require atellitech/auth-hyperf
+composer require atellitech/auth-hyperf:~3.2.0
 ```
 
 ---
@@ -37,7 +39,7 @@ return [
         'jwks_url' => 'https://sso.company.com/.well-known/jwks.json',
         'ttl' => 7200, // token lifetime in seconds
         'cache' => [
-            'driver' => 'default', // use your application's cache driver
+            'driver' => 'default', // cache store name in config/autoload/cache.php
         ],
     ],
 ];
