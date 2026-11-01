@@ -8,15 +8,17 @@ Supports JWT verification via remote JWKS (SSO integration).
 ## 🧩 Requirements
 
 * PHP ≥ 8.3
-* Hyperf ≥ 3.1
+* Hyperf 3.1 (`~3.1.0`)
 * Composer ≥ 2.0
+
+This release line supports Hyperf 3.1 only. For Hyperf 3.2, install `~3.2.0` (`v3.2.x`, branch `3.2`).
 
 ---
 
 ## ⚙️ 1. Installation
 
 ```bash
-composer require atellitech/auth-hyperf
+composer require atellitech/auth-hyperf:~3.1.0
 ```
 
 ---
